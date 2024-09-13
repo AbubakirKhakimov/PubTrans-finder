@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PubTrans finder</string>
+    <string name="foreground_service_notification_title">%1$s ilovasi fonda ishlayapti!</string>
+    <string name="foreground_service_notification_content">Iltimos, ilova to\'g\'ri ishlashi uchun ushbu bildirishnomani o\'chirmang!</string>
+</resources>

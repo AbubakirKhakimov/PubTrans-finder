@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="Base.Theme.PubTransFinder" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/gray</item>
+        <item name="colorSurface">@color/white</item>
+    </style>
+
+    <style name="Theme.PubTransFinder" parent="Base.Theme.PubTransFinder" />
+</resources>
