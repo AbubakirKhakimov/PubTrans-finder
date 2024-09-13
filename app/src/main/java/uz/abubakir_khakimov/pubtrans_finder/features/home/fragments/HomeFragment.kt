@@ -1,18 +1,8 @@
 package uz.abubakir_khakimov.pubtrans_finder.features.home.fragments
 
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-import android.view.Window
-import android.view.WindowInsetsController
-import android.widget.Spinner
-import androidx.annotation.ColorInt
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,6 +14,7 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
@@ -37,7 +28,6 @@ import uz.abubakir_khakimov.pubtrans_finder.features.home.adapters.PubTransStati
 import uz.abubakir_khakimov.pubtrans_finder.features.home.adapters.PubTransTypesAdapter
 import uz.abubakir_khakimov.pubtrans_finder.features.home.extensions.tryRunLocationProviderService
 import uz.abubakir_khakimov.pubtrans_finder.features.home.viewmodels.HomeViewModel
-
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {

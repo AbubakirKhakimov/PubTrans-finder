@@ -24,6 +24,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="288dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -85,6 +86,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="324dp"
         android:backgroundTint="@color/white"
         android:insetLeft="0dp"
         android:insetTop="0dp"
@@ -97,8 +99,7 @@
         app:iconSize="24dp"
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
