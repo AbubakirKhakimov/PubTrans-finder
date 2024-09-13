@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import uz.abubakir_khakimov.pubtrans_finder.R
 import uz.abubakir_khakimov.pubtrans_finder.core.presentation.extensions.collectWithLifeCircle
+import uz.abubakir_khakimov.pubtrans_finder.core.presentation.managers.GPSManager
 import uz.abubakir_khakimov.pubtrans_finder.core.presentation.utils.WindowTools
 import uz.abubakir_khakimov.pubtrans_finder.databinding.FragmentHomeBinding
 import uz.abubakir_khakimov.pubtrans_finder.domain.locations.models.Location
@@ -28,9 +29,12 @@ import uz.abubakir_khakimov.pubtrans_finder.features.home.adapters.PubTransStati
 import uz.abubakir_khakimov.pubtrans_finder.features.home.adapters.PubTransTypesAdapter
 import uz.abubakir_khakimov.pubtrans_finder.features.home.extensions.tryRunLocationProviderService
 import uz.abubakir_khakimov.pubtrans_finder.features.home.viewmodels.HomeViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
+
+    @Inject lateinit var gpsManager: GPSManager
 
     private val binding by viewBinding (FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
@@ -51,6 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
 
         tryRunLocationProviderService()
         viewModel.observeLocation()
+        gpsManager.checkGPSElseEnable(activity = requireActivity())
 
         googleMap.setOnCameraMoveStartedListener { i ->
             if (i == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE && locationAutoMove)
@@ -103,6 +108,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
                 location = viewModel.observeLocation.replayCache.lastOrNull()
                     ?: return@setOnClickListener
             )
+
+            gpsManager.checkGPSElseEnable(activity = requireActivity())
         }
     }
 
